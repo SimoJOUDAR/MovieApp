@@ -21,18 +21,7 @@ class HomepageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setOnClickListener()
+
     }
 
-
-    /***********************************************************************************************
-     ** Listeners
-     ***********************************************************************************************/
-
-    // Listen to profile button clicks to navigate to MyAccountFragment
-    private fun setOnClickListener() {
-        binding.button.setOnClickListener {
-            findNavController().navigate(HomepageFragmentDirections.actionHomepageFragmentToDetailFragment())
-        }
-    }
 }
