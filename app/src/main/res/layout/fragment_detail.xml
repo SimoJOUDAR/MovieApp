@@ -1,19 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.detail.DetailFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Detail" />
+    <data>
+        <variable
+            name="movie"
+            type="fr.mjoudar.oqee.domain.model.Movie" />
+    </data>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ink_blue"
+        tools:context=".presentation.detail.DetailFragment">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="80dp">
+
+            <com.bosphere.fadingedgelayout.FadingEdgeLayout
+                android:id="@+id/fading_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:fel_edge="top|left|bottom|right"
+                app:fel_size_top="20dp"
+                app:fel_size_bottom="80dp"
+                app:fel_size_left="20dp"
+                app:fel_size_right="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    tools:src="@drawable/movie_placeholder"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/movie_cover"
+                    cover="@{movie}"/>
+            </com.bosphere.fadingedgelayout.FadingEdgeLayout>
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/MovieTitle"
+                android:layout_marginTop="16dp"
+                tools:text="Movie name"
+                android:text="@{movie.name}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fading_layout"/>
+
+            <TextView
+                android:id="@+id/info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:theme="@style/MovieInfo"
+                android:layout_marginTop="10dp"
+                tools:text="2009  |  Adventure  |  2h30m"
+                info="@{movie}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/name"/>
+
+            <Button
+                android:id="@+id/play_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:backgroundTint="@color/play_red"
+                android:text="@string/play"
+                android:textSize="16sp"
+                android:drawableLeft="@drawable/ic_play_arrow_24"
+                android:paddingHorizontal="50dp"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/info"/>
+
+            <TextView
+                android:id="@+id/synopsis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="26dp"
+                tools:text="Seventeen-year-old Rose hails from an aristocratic family and is set to be married. When she boards the Titanic, she meets Jack Dawson, an artist, and falls in love with him."
+                android:text="@{movie.synopsis}"
+                android:theme="@style/MovieSynopsis"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/play_button"/>
+
+            <!--        Actors-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/crew_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="26dp"
+                android:orientation="horizontal"
+                tools:listitem="@layout/layout_recycler_view_crew_item"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/synopsis"/>
+
+            <TextView
+                android:id="@+id/copyright"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="26dp"
+                tools:text="2019 Passion River"
+                android:text="@{movie.copyright}"
+                android:theme="@style/MovieSynopsis"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/crew_recyclerview"/>
+
+            <TextView
+                android:id="@+id/official_website"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/official_website"
+                android:theme="@style/MovieOfficialWebsite"
+                android:backgroundTint="@color/ink_blue"
+                app:layout_constraintStart_toEndOf="@id/copyright"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/copyright" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

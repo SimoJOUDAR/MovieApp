@@ -2,4 +2,7 @@
     <string name="app_name">Oqee</string>
     <string name="title2">Watch what you like whenever you like</string>
     <string name="profile">profile</string>
+    <string name="movie_cover">Movie cover</string>
+    <string name="play">Play</string>
+    <string name="official_website">Official website</string>
 </resources>

@@ -10,8 +10,12 @@
 
 
     <color name="error_red">#b74c4c</color>
+    <color name="play_red">#CD2F39</color>
     <color name="light_grey">#CED4E0</color>
     <color name="light_grey_2">#b2b2b2</color>
     <color name="light_grey_3">#8e8e8e</color>
     <color name="grey_1">#717171</color>
+    <color name="ink_blue">#06041D</color>
+    <color name="blurry_blue">#232238</color>
+    <color name="highlight_blue">#3E73EA</color>
 </resources>

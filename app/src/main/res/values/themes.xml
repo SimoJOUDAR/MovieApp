@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Oqee" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Oqee" parent="Theme.Material3.Dark.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -9,8 +9,11 @@
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Status bar. -->
+        <item name="android:statusBarColor" >@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowFullscreen">true</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -25,6 +28,38 @@
         <item name="fontFamily">@font/lato</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="MovieTitle" parent="">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+
+    <style name="MovieSynopsis" parent="">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:textColor">@color/light_grey</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="MovieInfo" parent="MovieSynopsis">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="CrewMemberName" parent="MovieSynopsis">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="CrewMemberStatus" parent="MovieSynopsis">
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="MovieOfficialWebsite" parent="">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:textColor">@color/highlight_blue</item>
+        <item name="android:textSize">15sp</item>
     </style>
 
 </resources>
